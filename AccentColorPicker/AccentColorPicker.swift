@@ -12,6 +12,7 @@ struct AccentColorPicker: View {
 	
 	var chosenColor: Color {
 		accentColorManager.loadColor()
+		//test
 	}
 	
 	@State private var localColor = Color.indigo
