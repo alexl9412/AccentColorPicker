@@ -10,11 +10,11 @@ import SwiftUI
 struct AccentColorPicker: View {
 	@StateObject var accentColorManager = AccentColorManager()
 	
-	var chosenColor: Color {
-		accentColorManager.loadColor()
-	}
+//	var selectedColor: Color {
+//		accentColorManager.loadColor()
+//	}
 	
-	@State private var localColor = Color.indigo
+	@State private var selectedColor = Color.indigo
 	
 	enum AccentColors: CaseIterable {
 		case red, orange, yellow, green, mint, teal, cyan, blue, indigo, purple, pink, brown
@@ -59,10 +59,15 @@ struct AccentColorPicker: View {
     var body: some View {
 		List {
 			Section("Accent Color") {
+				
+				// test code showing selectedColor
+				Text("\(String(describing: selectedColor))")
+					.foregroundColor(selectedColor)
+				
 				LazyVGrid(columns: gridItemLayout, spacing: 10) {
 					ForEach(AccentColors.allCases, id: \.self) { color in
 						Button {
-							localColor = color.color
+							selectedColor = color.color
 							accentColorManager.saveColor(color: color.color)
 						} label: {
 							VStack {
@@ -70,7 +75,7 @@ struct AccentColorPicker: View {
 									.cornerRadius(14)
 									.frame(width: 60, height: 60)
 									.foregroundColor(color.color)
-									.overlay(color.color == localColor ? Image(systemName: "checkmark").foregroundColor(.primary) : Image(systemName: "checkmark").foregroundColor(.clear))
+									.overlay(color.color == selectedColor ? Image(systemName: "checkmark").foregroundColor(.primary) : Image(systemName: "checkmark").foregroundColor(.clear))
 								Text(color.title)
 							}
 						}
