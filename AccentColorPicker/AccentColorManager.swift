@@ -57,5 +57,4 @@ class AccentColorManager: ObservableObject {
 	func convertColor(color: String) {
 		selectedColor = zippedColors.filter { $0.1 == color }.compactMap { $0 }[0].0
 	}
-	
 }
