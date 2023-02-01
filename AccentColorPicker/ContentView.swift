@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+	@Environment(\.customColor) private var color: Binding<Color>
+	
 	var body: some View {
 		NavigationStack {
 			List {
-				NavigationLink(destination: AccentColorPicker()) {
+				NavigationLink(destination: AccentColorPicker(viewModel: AccentColorManager())) {
 					Text("Accent Color")
 				}
 			}
 			.navigationTitle("Settings")
 		}
-		.tint(AccentColorManager.shared.loadColor())
+		.tint(color.wrappedValue)
 	}
 }
 
