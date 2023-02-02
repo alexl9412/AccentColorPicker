@@ -77,7 +77,6 @@ struct AccentColorPicker: View {
 	}
 }
 
-
 struct AccentColorPicker_Previews: PreviewProvider {
     static var previews: some View {
 		AccentColorPicker(viewModel: AccentColorManager())
