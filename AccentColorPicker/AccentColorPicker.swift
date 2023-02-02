@@ -36,7 +36,7 @@ struct AccentColorPicker: View {
 												.stroke(.gray, lineWidth: 5)
 										}
 									})
-								//
+								
 								// second option for showing selected color: checkmark in overlay modifier below
 //									.overlay(content: {
 //										if viewModel.accentColor == option.1 {
